@@ -27,12 +27,13 @@ const Home = () => {
 		}
 	}
 
+	
 
 	return (
 		<div>
 			<Cabecera input={handleChange} nuevaTarea={nuevaTarea} />
-			<div className="row">
-				{
+			<div className="row tareas">
+				{task.length > 0 ? (
 					//Mapeamos el array que tenemos en cada momento
 					task.map((element) => {
 
@@ -40,7 +41,6 @@ const Home = () => {
 						const eliminarTarea = () => {
 							setTask(task.filter((elemento) => elemento != element))
 						}
-
 						//Retornamos una carta por cada elemento del array
 						return (
 							<>
@@ -48,7 +48,11 @@ const Home = () => {
 							</>
 						)
 					})
-				}
+				) : (
+					<div className="tareasPendientes">
+						<p >No hay tareas, añadir tareas</p>
+					</div>
+				)}
 			</div>
 		</div>
 	);

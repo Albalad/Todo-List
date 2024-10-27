@@ -7,17 +7,20 @@ const Cabecera = ({ input, nuevaTarea }) => {
 
 
     return (
-
-        <header>
-            <h1>To do list</h1>
-            <input type="text" name="text" placeholder="Proxima tarea" onChange={input} required onKeyDown={(event) => {
-                if (event.key === "Enter") {
-                    nuevaTarea();
-                }
-            }}
-            />
-            <button onClick={() => { nuevaTarea() }}>Aceptar tarea</button>
-        </header>
+        <div>
+            <header>
+                <h1><span className="todo">To do</span> list</h1>
+            </header>
+            <div className="input">
+                <input type="text" name="text" placeholder="Proxima tarea" onChange={input} required onKeyDown={(event) => {
+                    if (event.key === "Enter") {
+                        nuevaTarea();
+                    }
+                }}
+                />
+            </div>
+            
+        </div>
 
     );
 };
