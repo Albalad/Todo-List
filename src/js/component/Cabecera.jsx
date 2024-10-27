@@ -1,20 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 
-import Carta from "./Carta";
 
 //create your first component
-const Cabecera = ({input}) => {
+const Cabecera = ({ input, nuevaTarea }) => {
 
-    
 
-	return (
-		<div>
-			<header>
-                <h1>To do list</h1>
-                <input type="text" name="text" placeholder="Proxima tarea" onChange={input}/>
-            </header>
-		</div>
-	);
+
+    return (
+
+        <header>
+            <h1>To do list</h1>
+            <input type="text" name="text" placeholder="Proxima tarea" onChange={input} required onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                    nuevaTarea();
+                }
+            }}
+            />
+            <button onClick={() => { nuevaTarea() }}>Aceptar tarea</button>
+        </header>
+
+    );
 };
 
 export default Cabecera;
