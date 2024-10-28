@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import Carta from "./Carta";
 import Cabecera from "./Cabecera";
+import { Toaster, toast } from 'sonner'
 
 //create your first component
 const Home = () => {
@@ -21,7 +22,7 @@ const Home = () => {
 	const nuevaTarea = () => {
 		//Validamos que si no hay informacion en la variable tarea no pueda añadir nada al array de task
 		if (tarea == "") {
-			alert("introduce una tarea");
+			toast.error('Event has not been created');
 		} else {
 			setTask([...task, tarea]);
 			setTarea("");
@@ -34,6 +35,7 @@ const Home = () => {
 		<div>
 			<Cabecera input={handleChange} nuevaTarea={nuevaTarea} tarea={tarea} />
 			<div className="row tareas">
+				<Toaster />
 				{task.length > 0 ? (
 					//Mapeamos el array que tenemos en cada momento
 					task.map((element) => {
