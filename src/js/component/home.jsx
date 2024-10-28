@@ -7,23 +7,24 @@ import Cabecera from "./Cabecera";
 const Home = () => {
 
 	//Creamos una variable vacía para que almacene los datos del input
-	let tarea = "";
+	const [tarea, setTarea] = useState("")
 
 	// Creamos un array vacio para que almacene los datos que le llegan de la variable de tarea
 	const [task, setTask] = useState([]);
 
 	//Creamos la funcion para que el programa lea el valor que hay en el input y lo almacene en tarea
 	const handleChange = (event) => {
-		return tarea = event.target.value
+		setTarea(event.target.value);
 	}
 
 	//Creamos la funcion para que añada un elemento nuevo al array task
 	const nuevaTarea = () => {
 		//Validamos que si no hay informacion en la variable tarea no pueda añadir nada al array de task
 		if (tarea == "") {
-			alert("introduce una tarea")
+			alert("introduce una tarea");
 		} else {
-			setTask([...task, tarea])
+			setTask([...task, tarea]);
+			setTarea("");
 		}
 	}
 
@@ -31,7 +32,7 @@ const Home = () => {
 
 	return (
 		<div>
-			<Cabecera input={handleChange} nuevaTarea={nuevaTarea} />
+			<Cabecera input={handleChange} nuevaTarea={nuevaTarea} tarea={tarea} />
 			<div className="row tareas">
 				{task.length > 0 ? (
 					//Mapeamos el array que tenemos en cada momento

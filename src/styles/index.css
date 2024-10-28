@@ -48,13 +48,15 @@ header>h1 {
 .input {
     display: flex;
     justify-content: center;
-    padding: 1.5rem 0 0 3rem;
+    padding-top: 2rem;
     font-size: 1.5rem;
 }
 
-input {
-    margin-right: 1rem;
+input{
+    width: 310px;
 }
+
+
 
 .tareas {
     margin: 1.5rem 3rem 0 3rem;
@@ -65,10 +67,13 @@ input {
     height: 16rem;
     width: 25rem;
     text-align: center;
-    overflow: auto;
     color: white;
     background: rgb(255, 76, 0);
     background: radial-gradient(circle, rgba(255, 76, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+.cuerpo{
+    overflow: auto;
 }
 
 .carta>div>p {

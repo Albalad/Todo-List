@@ -2,7 +2,7 @@ import React from "react";
 
 
 //create your first component
-const Cabecera = ({ input, nuevaTarea }) => {
+const Cabecera = ({ input, nuevaTarea,tarea }) => {
 
 
 
@@ -12,14 +12,14 @@ const Cabecera = ({ input, nuevaTarea }) => {
                 <h1><span className="todo">To do</span> list</h1>
             </header>
             <div className="input">
-                <input type="text" name="text" placeholder="Proxima tarea" onChange={input} required onKeyDown={(event) => {
-                    if (event.key === "Enter") {
-                        nuevaTarea();
-                    }
-                }}
-                />
+                    <input className="" type="text" autoComplete="off" name="text" placeholder="Proxima tarea" value={tarea} onChange={input} required onKeyDown={(event) => {
+                        if (event.key === "Enter") {
+                            nuevaTarea();
+                        }
+                    }}
+                    />
             </div>
-            
+
         </div>
 
     );
